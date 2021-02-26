@@ -12,14 +12,11 @@ import time
 import json
 from datetime import date,  datetime
 
-def myconverter(o):
-    if isinstance(o, datetime.datetime):
-        return o.__str__()
 
 l = []
 
 try:
-    with open('listfile.txt', 'r') as filehandle:
+    with open('history.txt', 'r') as filehandle:
         for line in filehandle:
             el = json.loads(line)
             delatime = datetime.now() - datetime.strptime(el["time"], '%Y-%m-%d %H:%M:%S.%f')
@@ -40,6 +37,6 @@ while 1:
     l.append(prices)
     if (len(l) >= 1500):
         l.pop(0)
-    with open('listfile.txt', 'a+') as filehandle:
+    with open('history.txt', 'a+') as filehandle:
         filehandle.write(json.dumps(prices, default=str) + "\n")
     time.sleep(2)
