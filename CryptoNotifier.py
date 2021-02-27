@@ -6,7 +6,6 @@ Created on Fri Feb 26 23:59:02 2021
 @author: arthur
 """
 
-import pycoingecko
 from pycoingecko import CoinGeckoAPI
 import time
 import json
@@ -44,11 +43,12 @@ while 1:
     for el in l:
         dtime = current_time - datetime.strptime(el["time"], '%Y-%m-%d %H:%M:%S.%f')
         #print(dtime.seconds)
-        if dtime.seconds > 3500 and dtime.seconds < 4700: #1h
-            print(el)
+        if dtime.seconds > 3550 and dtime.seconds < 3650: #1h
+            #print(el)
             for tok in tokens:
                 if prices[tok]["usd"]/el[tok]["usd"] <= 0.7:
                     print("chute de +30% en 1h sur ", tok)
+                    print(dtime.seconds)
                 if prices[tok]["usd"]/el[tok]["usd"] >= 1.3:
                     print("monte de 30% en 1h sur", tok)
                     
