@@ -13,7 +13,7 @@ from datetime import date,  datetime
 
 
 l = []
-
+ll = []
 try:
     with open('history.txt', 'r') as filehandle:
         for line in filehandle:
@@ -43,15 +43,33 @@ while 1:
     for el in l:
         dtime = current_time - datetime.strptime(el["time"], '%Y-%m-%d %H:%M:%S.%f')
         #print(dtime.seconds)
-        if dtime.seconds > 3550 and dtime.seconds < 3650: #1h
+        if dtime.seconds > 3550 and dtime.seconds < 4650: #1h 3200 et 4000 
             #print(el)
             for tok in tokens:
-                if prices[tok]["usd"]/el[tok]["usd"] <= 0.7:
-                    print("chute de +30% en 1h sur ", tok)
-                    print(dtime.seconds)
-                if prices[tok]["usd"]/el[tok]["usd"] >= 1.3:
-                    print("monte de 30% en 1h sur", tok)
-                    
+                #if ll[current_time] - dtime <= 3600 
+                if len([item for item in ll if item[1]== tok and (current_time - item[0]).seconds < 1800]) == 0:
+                    pourcentage=prices[tok]["usd"]/el[tok]["usd"]
+                    if pourcentage <= 0.7:
+                        print("chute de -"+ str(round((1-pourcentage)*100,4)) +"% en 1h sur ", tok)
+                        ll.append((current_time,tok))
+                        #print(dtime.seconds)
+                    if pourcentage >= 1.3:
+                        print("monte de +"+ str(round((pourcentage -1)*100,4)) +"% en 1h sur", tok)
+                        ll.append((current_time,tok))
+        if dtime.seconds > 10400 and dtime.seconds < 11200: #3h avec 6 minutes 40 d'intervale 
+            #print(el)
+            for tok in tokens:
+                #if ll[current_time] - dtime <= 3600 
+                if len([item for item in ll if item[1]== tok and (current_time - item[0]).seconds < 1800]) == 0:
+                    pourcentage=prices[tok]["usd"]/el[tok]["usd"]
+                    if pourcentage <= 0.65:
+                        print("chute de -"+ str(round((1-pourcentage)*100,4)) +"% en 3h sur ", tok)
+                        ll.append((current_time,tok))
+                        #print(dtime.seconds)
+                    if pourcentage >= 1.35:
+                        print("monte de +"+ str(round((pourcentage -1)*100,4)) +"% en 3h sur", tok)
+                        ll.append((current_time,tok))
                 
             
-    time.sleep(2)
+    time.sleep(300)
+    
