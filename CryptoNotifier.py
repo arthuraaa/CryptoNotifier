@@ -41,33 +41,34 @@ while 1:
         filehandle.write(json.dumps(prices, default=str) + "\n")
         
     for el in l:
-        dtime = current_time - datetime.strptime(el["time"], '%Y-%m-%d %H:%M:%S.%f')
+        dtime = current_time.timestamp() - datetime.strptime(el["time"], '%Y-%m-%d %H:%M:%S.%f').timestamp()
         #print(dtime.seconds)
-        if dtime.seconds > 3550 and dtime.seconds < 4650: #1h 3200 et 4000 
+        if dtime > 3550 and dtime < 4650: #1h 3200 et 4000 
             #print(el)
             for tok in tokens:
                 #if ll[current_time] - dtime <= 3600 
                 if len([item for item in ll if item[1]== tok and (current_time - item[0]).seconds < 1800]) == 0:
-                    pourcentage=prices[tok]["usd"]/el[tok]["usd"]
-                    if pourcentage <= 0.7:
-                        print("chute de -"+ str(round((1-pourcentage)*100,4)) +"% en 1h sur ", tok)
+                    
+                    pourcentage=(prices[tok]["usd"]-el[tok]["usd"])/el[tok]["usd"]
+                    if pourcentage <= -0.3:
+                        print("chute de "+ str(round((pourcentage)*100,4)) +"% en 1h sur ", tok)
                         ll.append((current_time,tok))
                         #print(dtime.seconds)
-                    if pourcentage >= 1.3:
-                        print("monte de +"+ str(round((pourcentage -1)*100,4)) +"% en 1h sur", tok)
+                    if pourcentage >= 0.3:
+                        print("monte de +"+ str(round((pourcentage)*100,4)) +"% en 1h sur", tok)
                         ll.append((current_time,tok))
-        if dtime.seconds > 10400 and dtime.seconds < 11200: #3h avec 6 minutes 40 d'intervale 
-            #print(el)
+        if dtime > 10400 and dtime < 11200: #3h avec 6 minutes 40 d'intervale 
             for tok in tokens:
                 #if ll[current_time] - dtime <= 3600 
                 if len([item for item in ll if item[1]== tok and (current_time - item[0]).seconds < 1800]) == 0:
-                    pourcentage=prices[tok]["usd"]/el[tok]["usd"]
-                    if pourcentage <= 0.65:
-                        print("chute de -"+ str(round((1-pourcentage)*100,4)) +"% en 3h sur ", tok)
+                    pourcentage=(prices[tok]["usd"]-el[tok]["usd"])/el[tok]["usd"]
+                    print(pourcentage)
+                    if pourcentage <= -0.4:
+                        print("chute de "+ str(round((pourcentage)*100,4)) +"% en 3h sur ", tok)
                         ll.append((current_time,tok))
                         #print(dtime.seconds)
-                    if pourcentage >= 1.35:
-                        print("monte de +"+ str(round((pourcentage -1)*100,4)) +"% en 3h sur", tok)
+                    if pourcentage >= 0.4:
+                        print("monte de +"+ str(round((pourcentage)*100,4)) +"% en 3h sur", tok)
                         ll.append((current_time,tok))
                 
             

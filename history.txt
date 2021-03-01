@@ -552,3 +552,16 @@
 {"bitcoin": {"usd": 46922}, "ethereum": {"usd": 1510.45}, "litecoin": {"usd": 174.02}, "time": "2021-02-27 23:00:08.382043"}
 {"ethereum": {"usd": 1510.47}, "bitcoin": {"usd": 46933}, "litecoin": {"usd": 173.93}, "time": "2021-02-27 23:05:08.984866"}
 {"litecoin": {"usd": 173.93}, "ethereum": {"usd": 1511.96}, "bitcoin": {"usd": 46945}, "time": "2021-02-27 23:10:09.263051"}
+{"litecoin": {"usd": 170.56}, "ethereum": {"usd": 1450.62}, "bitcoin": {"usd": 46799}, "time": "2021-03-01 01:30:10.994883"}
+{"ethereum": {"usd": 1450.62}, "litecoin": {"usd": 169.26}, "bitcoin": {"usd": 46346}, "time": "2021-03-01 01:32:12.643488"}
+{"ethereum": {"usd": 1450.62}, "litecoin": {"usd": 169.26}, "bitcoin": {"usd": 46346}, "time": "2021-03-01 01:32:36.282490"}
+{"ethereum": {"usd": 1450.62}, "litecoin": {"usd": 169.26}, "bitcoin": {"usd": 46346}, "time": "2021-03-01 01:32:57.621370"}
+{"litecoin": {"usd": 169.26}, "bitcoin": {"usd": 46645}, "ethereum": {"usd": 1450.64}, "time": "2021-03-01 01:37:18.116765"}
+{"ethereum": {"usd": 1454.72}, "litecoin": {"usd": 169.74}, "bitcoin": {"usd": 46645}, "time": "2021-03-01 01:39:43.273996"}
+{"ethereum": {"usd": 1454.72}, "litecoin": {"usd": 169.74}, "bitcoin": {"usd": 46645}, "time": "2021-03-01 01:40:41.170866"}
+{"bitcoin": {"usd": 4661}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450004.72}, "time": "2021-03-01 00:45:20.386086"}
+{"bitcoin": {"usd": 46671}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450.89}, "time": "2021-03-01 01:46:28.612856"}
+{"bitcoin": {"usd": 46490}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450.89}, "time": "2021-03-01 01:48:09.096395"}
+{"bitcoin": {"usd": 46490}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450.89}, "time": "2021-03-01 01:48:59.164607"}
+{"bitcoin": {"usd": 46490}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450.89}, "time": "2021-03-01 01:50:00.225168"}
+{"bitcoin": {"usd": 46490}, "litecoin": {"usd": 168.78}, "ethereum": {"usd": 1450.89}, "time": "2021-03-01 01:50:17.474533"}
